@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ирина Турутина — твой голос как бизнес-актив</title>
+<style>
+  :root{
+    --plum:#2a1530;
+    --plum2:#3d1f44;
+    --wine:#7a2f4f;
+    --gold:#c9a24b;
+    --gold-soft:#e7cf94;
+    --cream:#f6f1e7;
+    --ink:#1d1320;
+    --muted:#6b5a66;
+    --line:rgba(201,162,75,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Georgia','Times New Roman',serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.eyebrow,.btn,nav,.price,.tag{font-family:'Helvetica Neue',Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;
+    color:var(--gold);font-weight:700;margin-bottom:18px;
+  }
+  .btn{
+    display:inline-block;background:var(--gold);color:var(--plum);
+    font-weight:700;letter-spacing:.02em;text-decoration:none;
+    padding:18px 34px;border-radius:2px;font-size:1.02rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 8px 24px rgba(201,162,75,.35);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,162,75,.5)}
+  .btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold);box-shadow:none}
+  .btn-ghost:hover{background:rgba(201,162,75,.12)}
+  .friction{font-size:.86rem;color:var(--muted);margin-top:14px}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(42,21,48,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  nav .brand{color:var(--cream);font-weight:700;letter-spacing:.04em;font-size:1rem}
+  nav .brand span{color:var(--gold)}
+  nav a.cta{
+    background:var(--gold);color:var(--plum);text-decoration:none;
+    padding:11px 22px;border-radius:2px;font-weight:700;font-size:.9rem;
+  }
+
+  /* HERO */
+  .hero{
+    background:
+      radial-gradient(1200px 600px at 70% -10%, rgba(122,47,79,.55), transparent 60%),
+      linear-gradient(160deg,var(--plum) 0%, var(--plum2) 100%);
+    color:var(--cream);padding:96px 0 110px;position:relative;overflow:hidden;
+  }
+  .hero:after{
+    content:"";position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;
+    border:1px solid var(--line);border-radius:50%;opacity:.5;
+  }
+  .hero:before{
+    content:"";position:absolute;right:40px;bottom:40px;width:260px;height:260px;
+    border:1px solid var(--line);border-radius:50%;opacity:.4;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.12;font-weight:800;
+    max-width:18ch;margin-bottom:24px;
+  }
+  .hero h1 em{color:var(--gold-soft);font-style:normal}
+  .hero p.sub{font-size:clamp(1.05rem,2.2vw,1.35rem);max-width:46ch;color:#e9ddea;margin-bottom:36px}
+  .hero .cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .hero .stats{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap}
+  .hero .stats div b{display:block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:2rem;color:var(--gold-soft);font-weight:800}
+  .hero .stats div span{font-size:.92rem;color:#cfc0d0}
+
+  /* SECTION base */
+  section{padding:84px 0}
+  .section-title{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.15;font-weight:800;max-width:24ch;margin-bottom:18px}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:60ch;margin-bottom:40px}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* PAIN */
+  .pain{background:var(--cream)}
+  .pain ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:14px}
+  .pain li{
+    background:#fff;border:1px solid #ece2d2;border-left:3px solid var(--wine);
+    padding:22px 24px;border-radius:4px;font-size:1.04rem;
+  }
+  .pain .after{margin-top:40px;font-size:1.15rem;max-width:60ch}
+  .pain .after b{color:var(--wine)}
+
+  /* DARK STRIP cost */
+  .cost{background:linear-gradient(160deg,var(--plum) 0%, var(--wine) 140%);color:var(--cream);text-align:center}
+  .cost .section-title{color:var(--cream);margin:0 auto 16px}
+  .cost p{font-size:1.15rem;color:#ecdfed;max-width:56ch;margin:0 auto 14px}
+  .cost .big{font-size:clamp(1.4rem,3vw,2rem);color:var(--gold-soft);font-weight:700;margin-top:24px}
+
+  /* DIFF cards */
+  .diff{background:#fff}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:20px}
+  .card{
+    background:var(--cream);border:1px solid #ece2d2;border-radius:6px;padding:30px 26px;
+  }
+  .card .num{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--gold);font-weight:800;font-size:.9rem;letter-spacing:.12em}
+  .card h3{font-size:1.25rem;margin:12px 0 10px;font-weight:800}
+  .card p{color:var(--muted);font-size:1rem}
+
+  /* METHOD */
+  .method{background:linear-gradient(160deg,#321a39,#241228);color:var(--cream)}
+  .method .section-title{color:var(--cream)}
+  .method .lead{color:#cdbccf}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:20px}
+  .pillar{border:1px solid var(--line);border-radius:6px;padding:30px 26px;background:rgba(255,255,255,.03)}
+  .pillar .p-num{font-family:'Helvetica Neue',Arial,sans-serif;font-size:2.4rem;font-weight:800;color:var(--gold);line-height:1}
+  .pillar h3{margin:14px 0 10px;color:var(--gold-soft);font-size:1.2rem}
+  .pillar p{color:#d7c9d8;font-size:1rem}
+
+  /* PRODUCTS */
+  .products{background:var(--cream)}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:24px;align-items:stretch}
+  .plan{
+    background:#fff;border:1px solid #e8ddcb;border-radius:8px;padding:30px 26px;display:flex;flex-direction:column;
+    position:relative;
+  }
+  .plan.featured{border:2px solid var(--gold);box-shadow:0 18px 40px rgba(122,47,79,.14)}
+  .tag{
+    position:absolute;top:-13px;left:26px;background:var(--wine);color:#fff;
+    font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    padding:6px 14px;border-radius:2px;
+  }
+  .plan .step{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.75rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;font-weight:700}
+  .plan h3{font-size:1.35rem;margin:8px 0 6px;font-weight:800}
+  .plan .who{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+  .plan .price{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.9rem;font-weight:800;color:var(--plum)}
+  .plan .price small{font-size:.95rem;color:var(--muted);font-weight:600}
+  .plan ul{list-style:none;margin:18px 0 26px;flex:1}
+  .plan li{padding:8px 0 8px 26px;position:relative;font-size:.98rem;border-bottom:1px solid #f0e8da}
+  .plan li:before{content:"›";position:absolute;left:6px;color:var(--gold);font-weight:800}
+  .plan .btn{text-align:center;margin-top:auto}
+
+  /* FIT two cols */
+  .fit{background:#fff}
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
+  .fit-box{border-radius:8px;padding:30px 28px}
+  .fit-yes{background:#f3f6ef;border:1px solid #d8e3cc}
+  .fit-no{background:#f8eef0;border:1px solid #e7cdd4}
+  .fit-box h3{font-size:1.2rem;margin-bottom:16px;font-weight:800}
+  .fit-box ul{list-style:none}
+  .fit-box li{padding:8px 0 8px 28px;position:relative;font-size:1rem}
+  .fit-yes li:before{content:"✓";position:absolute;left:0;color:#5b8a3c;font-weight:800}
+  .fit-no li:before{content:"✕";position:absolute;left:0;color:var(--wine);font-weight:800}
+  @media(max-width:680px){.fit-grid{grid-template-columns:1fr}}
+
+  /* ABOUT */
+  .about{background:linear-gradient(160deg,var(--plum2),var(--plum));color:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+  .about .portrait{
+    aspect-ratio:4/5;border-radius:8px;border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 50% 35%, rgba(231,207,148,.25), transparent 60%),
+      linear-gradient(160deg,#4a2750,#2a1530);
+    display:flex;align-items:center;justify-content:center;color:#7a6478;font-size:.9rem;text-align:center;padding:20px;
+  }
+  .about .section-title{color:var(--cream)}
+  .about p{color:#e3d6e4;margin-bottom:16px;font-size:1.06rem}
+  .about .sign{color:var(--gold-soft);font-style:italic;font-size:1.1rem}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
+
+  /* RESULTS */
+  .results{background:var(--cream)}
+  .results .grid3 .card{background:#fff}
+  .results .card p strong{color:var(--wine)}
+  .note{font-size:.85rem;color:#a08f9b;margin-top:24px;font-style:italic}
+
+  /* FAQ */
+  .faq{background:#fff}
+  details{border-bottom:1px solid #ece2d2;padding:20px 0}
+  details summary{
+    font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:1.1rem;
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary:after{content:"+";color:var(--gold);font-size:1.6rem;font-weight:400}
+  details[open] summary:after{content:"–"}
+  details p{margin-top:14px;color:var(--muted);max-width:65ch}
+
+  /* FINAL CTA */
+  .final{
+    background:
+      radial-gradient(900px 500px at 30% 0%, rgba(122,47,79,.6), transparent 60%),
+      linear-gradient(160deg,var(--plum),#1c0f21);
+    color:var(--cream);text-align:center;
+  }
+  .final .section-title{color:var(--cream);margin:0 auto 18px}
+  .final p{color:#e3d6e4;max-width:54ch;margin:0 auto 34px;font-size:1.15rem}
+  .form{
+    max-width:440px;margin:0 auto;display:grid;gap:14px;text-align:left;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);padding:30px;border-radius:10px;
+  }
+  .form label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft)}
+  .form input,.form select{
+    width:100%;padding:14px 16px;border-radius:4px;border:1px solid var(--line);
+    background:rgba(255,255,255,.06);color:var(--cream);font-size:1rem;font-family:inherit;
+  }
+  .form input::placeholder{color:#a895ab}
+  .form .btn{margin-top:8px;text-align:center;width:100%;border:none;cursor:pointer;font-size:1.05rem}
+
+  footer{background:#160b1a;color:#8c7a8e;text-align:center;padding:40px 0;font-size:.9rem}
+  footer span{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">ИРИНА <span>ТУРУТИНА</span></div>
+    <a href="#diagnostika" class="cta">Записаться на диагностику</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Техника речи и голос для экспертов и предпринимателей · 2026</div>
+    <h1>Тебя слушают, потому что ты <em>звучишь</em>. А не потому, что ты громче всех.</h1>
+    <p class="sub">Я выстраиваю голос, который работает на тебя 24/7: на переговорах, в сторис, на сцене и в созвонах. Не «ставлю звуки» — превращаю твою речь в актив, который приносит деньги.</p>
+    <div class="cta-row">
+      <a href="#diagnostika" class="btn">Записаться на диагностику голоса</a>
+      <a href="#produkty" class="btn btn-ghost">Смотреть форматы работы</a>
+    </div>
+    <div class="stats">
+      <div><b>34</b><span>года работы с голосом и словом</span></div>
+      <div><b>3</b><span>опоры авторской системы</span></div>
+      <div><b>1-я</b><span>сессия — и дышится иначе</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <div class="eyebrow">Узнаёшь себя?</div>
+    <h2 class="section-title">Ты эксперт. Но голос тянет тебя вниз.</h2>
+    <ul>
+      <li>Тебя перебивают и не дослушивают — даже когда ты говоришь по делу.</li>
+      <li>После 15 минут спича голос садится, а ты выжата как лимон.</li>
+      <li>На записи свой голос слышать неловко: звучит тише и слабее, чем ты внутри.</li>
+      <li>В созвоне и на переговорах ты теряешь именно там, где должна закрывать.</li>
+    </ul>
+    <p class="after">Дело не в том, что тебе нечего сказать. <b>Дело в том, как это звучит.</b> Самых умных и компетентных часто не слышно из-за технических ошибок в речи. Это чинится.</p>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="cost">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold-soft)">Цена тишины</div>
+    <h2 class="section-title center">Сколько ты теряешь, говоря тише, чем можешь?</h2>
+    <p>Каждое выступление, после которого «вроде нормально, но не зацепило». Каждый созвон, где решение ушло к тому, кто звучал увереннее. Каждая сторис, которую досматривают не до конца.</p>
+    <p>Голос — это не про красоту. Это про доверие, продажи и право занимать своё место.</p>
+    <div class="big">Твой голос либо работает на твой доход, либо против него. Третьего нет.</div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATION -->
+<section class="diff">
+  <div class="wrap">
+    <div class="eyebrow">Почему со мной — иначе</div>
+    <h2 class="section-title">То, чего нет у курсов-потоков и медийных тренеров</h2>
+    <p class="lead">На рынке либо большие потоки, где ты теряешься в группе, либо «фишки» без системы, либо обещания «будешь выступать как Путин». Я работаю по-другому.</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="num">01 · МЕДИЦИНСКАЯ БАЗА</div>
+        <h3>Логопед-дефектолог, а не «коуч по харизме»</h3>
+        <p>Образование по специальности логопедия и дефектология + школа дизайна голоса и речи Седы Каспаровой. Я работаю с физиологией: дыханием, зажимами, постановкой звука. Не приёмы — основа, которая держит всю конструкцию.</p>
+      </div>
+      <div class="card">
+        <div class="num">02 · БИЗНЕС-РЕЗУЛЬТАТ</div>
+        <h3>Голос под твой доход, а не под сцену в театре</h3>
+        <p>Каждое упражнение работает на переговоры, продажи, вебинары и созвоны — туда, где живут твои деньги. Не «красивый голос ради красивого голоса».</p>
+      </div>
+      <div class="card">
+        <div class="num">03 · БЕРЕЖНО, БЕЗ МУШТРЫ</div>
+        <h3>Сохраняю твою интонацию, а не леплю по шаблону</h3>
+        <p>Работаю с голосом экологично, без насилия. Мы ищем и усиливаем ТВОЙ стиль и харизму, а не превращаем занятия в логопедическую муштру первого класса.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method" id="metod">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">Авторский метод</div>
+    <h2 class="section-title">Система Трёх Опор</h2>
+    <p class="lead">От простого к сложному. Сначала база, которая держит всё остальное. 80% времени ты говоришь, а не слушаешь меня.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="p-num">01</div>
+        <h3>Тело и дыхание</h3>
+        <p>Физиологическая свобода и опора звука. Голос перестаёт садиться и уставать — он держится на дыхании, а не на горле.</p>
+      </div>
+      <div class="pillar">
+        <div class="p-num">02</div>
+        <h3>Артикуляция и дикция</h3>
+        <p>Чистота и комфорт для слушателя. Тебя слышно с первого раза, без напряжения с обеих сторон.</p>
+      </div>
+      <div class="pillar">
+        <div class="p-num">03</div>
+        <h3>Интонация и логика</h3>
+        <p>Смысловые акценты и твоя уникальная мелодика. Тебе верят без вопросов, потому что слышно, где главное.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="produkty">
+  <div class="wrap">
+    <div class="eyebrow">Форматы работы</div>
+    <h2 class="section-title">Выбери, с чего начать</h2>
+    <p class="lead">Вход для всех — диагностика. Дальше идём туда, где твой результат: регулярная практика в клубе, интенсив в группе или личная работа под бизнес-задачу.</p>
+    <div class="plans">
+
+      <div class="plan featured">
+        <span class="tag">Начни здесь</span>
+        <div class="step">Шаг 1</div>
+        <h3>Диагностика голоса</h3>
+        <div class="who">30–40 минут один на один</div>
+        <div class="price">2 900 ₽</div>
+        <ul>
+          <li>Разбор твоей речи по трём опорам</li>
+          <li>Где именно теряешь силу и почему</li>
+          <li>Карта роста под твою задачу</li>
+          <li>Засчитываю стоимость при покупке пакета</li>
+        </ul>
+        <a href="#diagnostika" class="btn">Записаться</a>
+      </div>
+
+      <div class="plan">
+        <div class="step">Регулярно</div>
+        <h3>Клуб «ПРОсто клуб спикеров»</h3>
+        <div class="who">Практика и разборы каждую неделю</div>
+        <div class="price">3 500 ₽<small>/мес</small></div>
+        <ul>
+          <li>Живые тренировки голоса в группе</li>
+          <li>Разбор твоих выступлений и созвонов</li>
+          <li>Среда, где звучать — норма</li>
+          <li>Отмена подписки в любой момент</li>
+        </ul>
+        <a href="#diagnostika" class="btn btn-ghost">Попасть в клуб</a>
+      </div>
+
+      <div class="plan">
+        <div class="step">В группе</div>
+        <h3>Интенсив «Система Трёх Опор»</h3>
+        <div class="who">4 недели · мини-группа до 8</div>
+        <div class="price">24 000 ₽</div>
+        <ul>
+          <li>Вся база за месяц, по шагам</li>
+          <li>80% времени — твоя практика</li>
+          <li>Честная обратная связь без лести</li>
+          <li>Упражнения, что делаешь в машине и душе</li>
+        </ul>
+        <a href="#diagnostika" class="btn btn-ghost">Занять место</a>
+      </div>
+
+      <div class="plan">
+        <div class="step">Личная работа</div>
+        <h3>Наставничество «Голос-актив»</h3>
+        <div class="who">2 месяца · 8 личных встреч</div>
+        <div class="price">90 000 ₽</div>
+        <ul>
+          <li>Глубокая индивидуальная работа</li>
+          <li>Голос под твою конкретную бизнес-задачу</li>
+          <li>Подготовка к выступлению или запуску</li>
+          <li>Сопровождение между встречами</li>
+        </ul>
+        <a href="#diagnostika" class="btn btn-ghost">Обсудить работу</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FIT -->
+<section class="fit">
+  <div class="wrap">
+    <div class="eyebrow center" style="text-align:center">Честно, до старта</div>
+    <h2 class="section-title center">Тебе со мной по пути?</h2>
+    <div class="fit-grid">
+      <div class="fit-box fit-yes">
+        <h3>Да, если ты</h3>
+        <ul>
+          <li>Уже эксперт, но чувствуешь, что голос «не тянет» твой уровень дохода</li>
+          <li>Устала, что тебя перебивают и не дослушивают</li>
+          <li>Понимаешь, что выступление — это твой личный бренд</li>
+          <li>Хочешь говорить ярко и с удовольствием, а не «как по бумажке»</li>
+          <li>Ценишь профессионализм и готова к регулярной работе</li>
+        </ul>
+      </div>
+      <div class="fit-box fit-no">
+        <h3>Нет, если ты</h3>
+        <ul>
+          <li>Ищешь «волшебную кнопку» без практики</li>
+          <li>Не готова слышать правду о своём звучании</li>
+          <li>Хочешь «научиться за 1 день» — я уважаю физиологию голоса</li>
+          <li>Ждёшь, что станешь «как Путин» — мы усиливаем ТВОЙ стиль</li>
+          <li>Не считаешь речь приоритетом</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="portrait">[ фото Ирины — заменить ]</div>
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Кто я</div>
+        <h2 class="section-title">Ирина Турутина</h2>
+        <p>Тренер по технике речи и ораторскому мастерству. 34 года работы с голосом и словом. За плечами — Мордовский госпединститут по специальности логопедия и дефектология и школа дизайна голоса и речи Седы Каспаровой в Москве.</p>
+        <p>Я возвращаю экспертам их голос — тот самый, природный, сильный и свободный. Потому что знаю: твой контент, вебинары и встречи могут звучать ярче, чем у конкурентов, и приносить заслуженный результат.</p>
+        <p class="sign">«Я продаю не уроки речи. Я продаю право занимать своё место — в переговорной, на сцене и в жизни.»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS / STANDARDS -->
+<section class="results">
+  <div class="wrap">
+    <div class="eyebrow">Что меняется в работе</div>
+    <h2 class="section-title">Мои стандарты — это твои гарантии</h2>
+    <div class="grid3">
+      <div class="card">
+        <div class="num">ПОСЛЕ 1-Й СЕССИИ</div>
+        <p><strong>Дышится и звучится иначе.</strong> Не через месяц — после первой же встречи ты чувствуешь разницу в теле и голосе.</p>
+      </div>
+      <div class="card">
+        <div class="num">ВЫНОСЛИВОСТЬ</div>
+        <p><strong>Голос перестаёт садиться</strong> и уставать после 15 минут спича. Долгие выступления больше не выматывают.</p>
+      </div>
+      <div class="card">
+        <div class="num">ПРОСТОТА</div>
+        <p><strong>Упражнения без спецусловий.</strong> Делаешь в машине или в душе. Никаких «найди два часа в тишине».</p>
+      </div>
+    </div>
+    <!-- ЗАМЕНИТЬ на реальные кейсы клиентов, когда соберём 20 историй (цель года) -->
+    <p class="note">Раздел с кейсами предпринимателей, чей чек вырос после работы над голосом, — здесь появятся реальные истории.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="eyebrow">Частые вопросы</div>
+    <h2 class="section-title">Прежде чем записаться</h2>
+    <details open>
+      <summary>Чем диагностика отличается от обычной консультации?</summary>
+      <p>Это не «поговорили». Я слушаю твою речь по трём опорам, показываю, где именно ты теряешь силу, и даю карту роста под твою задачу. После неё понятно, что чинить и сколько это займёт. Стоимость диагностики засчитываю при покупке пакета.</p>
+    </details>
+    <details>
+      <summary>У меня нет проблем с дикцией. Мне это нужно?</summary>
+      <p>Чаще всего голос «не тянет» не из-за дикции, а из-за дыхания, зажимов и интонации. Именно это слышит твой собеседник как «неуверенно». Диагностика покажет твою конкретную точку роста.</p>
+    </details>
+    <details>
+      <summary>За сколько будет результат?</summary>
+      <p>Разницу в дыхании и звучании ты почувствуешь уже после первой сессии. Устойчивый результат — это регулярная работа, а не один день. Я уважаю физиологию голосового аппарата и не обещаю магию.</p>
+    </details>
+    <details>
+      <summary>Я интроверт и не выступаю на сцене. Подойдёт?</summary>
+      <p>Да. Доход всё чаще зависит от созвонов, переговоров, сторис и голосовых, а не только от сцены. Мы работаем под твою реальную жизнь, а не под театральный образ.</p>
+    </details>
+    <details>
+      <summary>Онлайн работает так же, как офлайн?</summary>
+      <p>Да. Метод полностью адаптирован под онлайн — большинство клиентов занимаются по видеосвязи из любого города.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="diagnostika">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold-soft)">🗣️ Первый шаг</div>
+    <h2 class="section-title center">Запишись на диагностику голоса</h2>
+    <p>Узнай, сколько ты теряешь, говоря тише, чем можешь — и что с этим делать. 30–40 минут, один на один, с картой роста на выходе.</p>
+    <form class="form" onsubmit="return false;">
+      <div>
+        <label for="name">Как тебя зовут</label>
+        <input id="name" type="text" placeholder="Имя">
+      </div>
+      <div>
+        <label for="contact">Telegram или телефон</label>
+        <input id="contact" type="text" placeholder="@username или +7…">
+      </div>
+      <div>
+        <label for="goal">Где голос мешает больше всего</label>
+        <select id="goal">
+          <option>Переговоры и продажи</option>
+          <option>Выступления и сцена</option>
+          <option>Сторис, подкасты, контент</option>
+          <option>Созвоны и вебинары</option>
+          <option>Голос садится и устаёт</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Записаться на диагностику — 2 900 ₽</button>
+      <div class="friction" style="text-align:center">Стоимость засчитываю при покупке пакета. Без предоплаты за «воздух».</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Ирина Турутина · техника речи и ораторское мастерство · <span>Система Трёх Опор</span><br>
+    © 2026 · Голос как актив
+  </div>
+</footer>
+
+</body>
+</html>
